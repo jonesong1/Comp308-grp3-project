@@ -4,6 +4,8 @@ var GraphQLNonNull = require("graphql").GraphQLNonNull;
 var GraphQLString = require("graphql").GraphQLString;
 var NurseModel = require("../models/nurse.server.model");
 const ObjectId = require("mongodb").ObjectID;
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 // Create a GraphQL Object Type for Course model
 const nurseType = new GraphQLObjectType({
