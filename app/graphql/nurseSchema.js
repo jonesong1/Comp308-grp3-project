@@ -59,7 +59,7 @@ const queryType = {
         },
     },
 };
-
+// create a GraphQL query type that return CRUD oeprations
 const mutation = {
     addNurse: {
         type: nurseType,
