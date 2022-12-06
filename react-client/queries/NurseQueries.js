@@ -29,7 +29,7 @@ const ADD_NURSE = gql`
     $username: String!
     $password: String!
   ) {
-    AddNurse(
+    addNurse(
       firstName: $firstName
       lastName: $lastName
       username: $username
