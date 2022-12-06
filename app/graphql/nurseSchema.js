@@ -7,7 +7,7 @@ const ObjectId = require("mongodb").ObjectID;
 
 // Create a GraphQL Object Type for Course model
 const nurseType = new GraphQLObjectType({
-    name: "course",
+    name: "nurse",
     fields: function () {
         return {
             _id: {
@@ -59,7 +59,7 @@ const queryType = {
         },
     },
 };
-
+// create a GraphQL query type that return CRUD oeprations
 const mutation = {
     addNurse: {
         type: nurseType,
