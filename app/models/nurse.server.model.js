@@ -30,7 +30,7 @@ var NurseSchema = new Schema({
     trim: true,
     // Validate the password format
     validate: [
-      (password) => password && password.length > 6,
+      (password) => password && password.length > 8,
       "Password should be longer",
     ],
   },
