@@ -23,13 +23,13 @@ const QUERY_NURSES = gql`
 `;
 
 const ADD_NURSE = gql`
-  mutation AddCourse(
+  mutation AddNurse(
     $firstName: String!
     $lastName: String!
     $username: String!
     $password: String!
   ) {
-    addCourse(
+    AddNurse(
       firstName: $firstName
       lastName: $lastName
       username: $username
