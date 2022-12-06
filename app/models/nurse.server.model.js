@@ -25,12 +25,12 @@ var NurseSchema = new Schema({
   password: {
     type: String,
     // Validate 'password' value existance
-   
+    required: "Passwod is required",
     // Trim the 'password' field
     trim: true,
     // Validate the password format
     validate: [
-      (password) => password && password.length > 6,
+      (password) => password && password.length > 8,
       "Password should be longer",
     ],
   },
