@@ -28,9 +28,9 @@ app.use(
 );
 //
 // Use the Express application instance to listen to the '4000' port
-app.listen(4000, () =>
+app.listen(3000, () =>
   console.log(
-    "Express GraphQL Server Now Running On http://localhost:4000/graphql"
+    "Express GraphQL Server Now Running On http://localhost:3000/graphql"
   )
 );
 
