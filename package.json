@@ -25,6 +25,11 @@
     "mongoose": "^5.11.15",
     "morgan": "^1.10.0"
   },
+  {
+    "engines": {
+      "node": "= 16.x"
+    },
+  }
   "devDependencies": {
     "nodemon": "^2.0.2"
   },
@@ -36,6 +41,6 @@
     "mongodb",
     "graphql"
   ],
-  "author": "Timothy & James",
+  "author": "Group 3",
   "license": "ISC"
 }
