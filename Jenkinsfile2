@@ -1,0 +1,58 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'nodejs'
+    }
+    parameters {
+        choice(name:'VERSION', choices:['1.0', '1.1', '1.2'], description:'Choose the version of the project')
+
+        booleanParam(name :'executeTests', description:'Execute the tests', defaultValue:false)
+    }
+
+    stages {
+        stage('Checkout') {
+            steps { 
+                git branch: 'main', url: 'https://github.com/jonesong1/Comp308-grp3-project.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Test"
+            }
+        }
+        stage('Deliver: Build Image') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    sh 'docker build -t jonesong/comp308-grp3-project .'
+                    sh "echo $PASS | docker login -u $USER --password-stdin"
+                    sh 'docker push jonesong/comp308-grp3-project'
+                }
+            }
+        }
+        stage ('Deploy to Dev Env') {
+            steps {
+                echo "Deploy to Dev Env"
+            }
+        }
+        stage ('Deploy to QAT Env') {
+            steps {
+                echo "Deploy to QAT Env"
+            }
+        }
+        stage ('Deploy to Staging Env') {
+            steps {
+                echo "Deploy to Staging Env"
+            }
+        }
+        stage ('Deploy to Prod Env') {
+            steps {
+                sh 'docker run  -p 3000:3000 -d jonesong/comp308-grp3-project:latest'
+            }
+        }
+    }
+}
